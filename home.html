@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio</title>
+</head>
+<body>
+    <h1>Página de Inicio</h1>
+    <p>Bienvenido a nuestra aplicación web con autenticación básica.</p>
+
+    {% if current_user.is_authenticated %}
+        <p>Estás conectado como {{ current_user.id }}.</p>
+        <a href="{{ url_for('dashboard') }}">Ir al Dashboard</a><br>
+        <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+    {% else %}
+        <a href="{{ url_for('login') }}">Iniciar sesión</a>
+    {% endif %}
+</body>
+</html>
